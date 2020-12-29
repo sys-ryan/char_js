@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body class="" style="background-color:black" ;>
+
+  <div class="m-5">
+    <div class="card col-md-6 offset-md-3">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+  <img id="star" src="https://www.glamouratiuk.com/include/thumbnail.asp?sFile=/file-manager/Products/Stencils/star-3.jpg&iWidth=65" width="25" height="25" class="d-none">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  <script>
+    const star_image = document.getElementById('star');
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'line',
+
+      // The data for our dataset
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
+        datasets: [{
+          label: 'my label',
+
+
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          // backgroundColor: '#F00',
+          // backgroundColor: 'Green',
+
+
+          // borderColor: 'rgb(255, 99, 132)',
+          borderColor: 'hotpink',
+
+          borderWidth: 2,
+
+
+          // borderDash: [10, 5, 10, 2],   //space between dashes
+          borderDash: [10],
+          borderDashOffset: 10,
+          borderCapStyle: "round", //default == butt
+          borderJoinStyle: "round", //round, bevel, miter
+
+
+          // cubicInterpolationMode: "monotone",
+
+
+          fill: "start", // start, end, origin
+
+
+          lineTension: 0.3, //default = 0.4   cubicInterpolationMode will overrule this attr
+
+
+          // pointBackgroundColor: "Blue",  //single color
+          pointBackgroundColor: ["red", "green", "blue", "yellow", "orange", "purple", "hotpink"], //multiple color
+
+          // pointBorderColor: "red",
+          // pointBorderColor: "", //예쁨
+          pointBorderColor: ["red", "green", "blue", "yellow", "orange", "purple", "hotpink"],
+
+          pointBorderWidth: 4,
+          pointRadius: 10,
+
+          pointStyle: "circle", //'circle', 'cross', 'crossRot', 'dash', 'line', 'rect', 'rectRounded', 'rectRot', 'star', 'triangle'
+          // pointStyle: star_image, //image variable
+
+          pointHitRadius: 20,
+          pointHoverBackgroundColor: ["red", "green", "blue", "yellow", "orange", "purple", "hotpink"],
+          pointHoverBorderColor: 'black',
+          pointHoverBorderWidth: 3,
+          pointHoverRadius: 25,
+
+
+
+          showLine: true, // true, false
+
+          steppedLine: false, // lineTension will be ignored.
+          /*
+          false: No Step Interpolation (default)
+          true: Step-before Interpolation (eq. 'before')
+          'before': Step-before Interpolation
+          'after': Step-after Interpolation
+          'middle': Step-middle Interpolation
+          */
+
+          data: [0, 50, 5, 2, 20, 30, 45], //original data
+          // data: [0, 50, 5, 2, , 30, 45], //original data
+          // spanGaps: false, // true, false
+        }, {
+          label: 'my profit',
+
+
+          backgroundColor: 'rgba(0, 255, 0, 0.2)',
+          // backgroundColor: '#F00',
+          // backgroundColor: 'Green',
+
+
+          // borderColor: 'rgb(255, 99, 132)',
+          borderColor: 'hotpink',
+
+          borderWidth: 2,
+
+
+          // borderDash: [10, 5, 10, 2],   //space between dashes
+          borderDash: [10],
+          borderDashOffset: 10,
+          borderCapStyle: "round", //default == butt
+          borderJoinStyle: "round", //round, bevel, miter
+
+
+
+          data: [0, 50, 5, 2, 20, 30, 45], //original data
+          // data: [0, 50, 5, 2, , 30, 45], //original data
+          // spanGaps: false, // true, false
+        }]
+      },
+
+      // Configuration options go here
+      options: {
+        scales: {
+          yAxes: [{
+            stacked: true
+          }]
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
