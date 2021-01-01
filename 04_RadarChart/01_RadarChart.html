@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body class="" style="background-color:black";>
+  <h1>Hello, world!</h1>
+
+  <div class="m-5">
+    <div class="card col-md-6 offset-md-3">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'radar',
+
+      // The data for our dataset
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+          label: 'Radar chart values',
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgb(255, 99, 132)',
+          borderWidth: 4,
+          borderDash: [10, 5],
+          // borderDashOffset: 5,
+          borderCapStyle: "round", // butt, round, square
+          // borderJoinStyle: "round",
+
+          lineTension: 0,
+
+          pointBackgroundColor: ["red", "orange", "yellow", "green", "blue", "purple", "pink"],
+          pointBorderColor: "red",
+          pointBorderWidth: 3,
+          pointRadius: 10,
+          // pointStyle: "crossRot",
+          pointHitRadius: 30,
+
+          pointHoverBackgroundColor: "white",
+          pointHoverBorderColor: "black",
+          pointHoverRadius: 20,
+          pointHoverBorderWidth: 10,
+
+          data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+      },
+
+      // Configuration options go here
+      options: {}
+    });
+  </script>
+</body>
+
+</html>
