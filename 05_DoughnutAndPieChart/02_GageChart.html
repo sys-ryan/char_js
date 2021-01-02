@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../style.css">
+  <title>Hello, world!</title>
+</head>
+
+<body class="">
+  <h1>Hello, world!</h1>
+
+  <div class="m-5">
+    <div class="card col-md-6 offset-md-3">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'doughnut',
+
+      // The data for our dataset
+      data: {
+        labels: ['January', 'February', 'March'],
+        datasets: [{
+          label: 'My First dataset',
+          backgroundColor: ["gray", "red", "gray"],
+          borderColor: "white",
+          borderWidth: 0,
+
+          hoverBackgroundColor: "black",
+          hoverBorderColor: ["red", "orange", "yellow"],
+          hoverBorderWidth: 3,
+
+          data: [45, 1, 10]
+        }]
+      },
+
+      // Configuration options go here
+      options: {
+        cutoutPercentage: 80,
+        rotation: 0.8 * Math.PI,
+        circumference: 1.4 * Math.PI,
+        animation: {
+          animateRotate: false,
+          animateScale: false,
+        }
+      }
+    });
+
+    //rotation values
+    // PI = 3.141592653589793
+    // 25% || 90 = 6.283185307179586
+    // 50% || 180 = 1.15707963267948966
+    // 75% || 270 = 3.141592653589793
+    // 100% || 360 = 4.71238898038469
+
+  </script>
+</body>
+
+</html>
