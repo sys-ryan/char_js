@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body class="" style="background-color:black;">
+  <h1>Hello, world!</h1>
+
+  <div class="m-5">
+    <div class="card col-md-6 offset-md-3">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  <script>
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: 'line',
+
+      // The data for our dataset
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+          label: 'My First dataset',
+          backgroundColor: 'rgba(255, 99, 132, 0.3)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: Array.from({length: 10}, () => Math.floor(Math.random() * 100)),
+          pointStyle: "line",
+        },
+        {
+          label: 'My Second dataset',
+          backgroundColor: 'rgba(66, 135, 245, 0.3)',
+          borderColor: 'rgb(66, 135, 245)',
+          data: Array.from({length: 10}, () => Math.floor(Math.random() * 100)),
+          pointStyle: "rect",
+        },
+        {
+          label: 'My Third dataset',
+          backgroundColor: 'rgba(174, 120, 255, 0.3)',
+          borderColor: 'rgb(174, 120, 255)',
+          data: Array.from({length: 10}, () => Math.floor(Math.random() * 100)),
+        }]
+      },
+
+      // Configuration options go here
+      options: {
+        legend: {
+          display: true,
+          position: "right",
+          reverse: false,
+          onClick: handleClick,
+          onHover: handleHover,
+
+          labels: {
+            boxWidth: 20,
+            fontSize: 15,
+            fontStyle: 'bold',
+            fontColor: 'black',
+            fontFamily: 'serif',
+            padding: 10,
+            usePointStyle: true,
+          }
+        }
+      }
+    });
+
+    function handleClick(evt) {
+      console.log(evt.target);
+    }
+
+    function handleHover() {
+      chart.options.legend.labels.fontColor = 'red';
+    }
+
+
+  </script>
+</body>
+
+</html>
